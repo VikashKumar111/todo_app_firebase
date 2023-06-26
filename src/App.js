@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react';
 import Todo from './Todo';
 import { Button, FormControl, Input, InputLabel } from '@mui/material';
 import './App.css';
-import db from './firebase';
+import { db } from './firebase';
 
-import firebase from './firebase';
+
+
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    db.collecton('todos').onSnapshot(snapshot => {
+    db.collection('todos').onSnapshot(snapshot => {
       setTodos(snapshot.docs.map(doc => doc.data().todo))
     })
   }, []);

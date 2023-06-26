@@ -1,5 +1,10 @@
 
-import firebase from firebase;
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
+
 const firebaseApp = firebase.initializeApp({
         apiKey: "AIzaSyAxLyWWocltbkKkF0i4Sjoo_BmItZcDDB0",
         authDomain: "todo-app-firebase-9154f.firebaseapp.com",
@@ -11,4 +16,5 @@ const firebaseApp = firebase.initializeApp({
 });
 
 const db = firebaseApp.firestore();
-export default db;
+const auth = firebase.auth();
+export { auth, db };
